@@ -10,6 +10,8 @@ RUN mkdir -p ./buildAgent
 ADD start_vm.xsh ./
 ADD start.sh ./
 ADD tc.sh ./
+ADD tc_lib.sh ./
+ADD tc_update.sh ./
 ADD bootstrap.sh ./
 ADD Vagrantfile ./
 

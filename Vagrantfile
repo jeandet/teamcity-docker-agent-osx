@@ -18,13 +18,16 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     # Fix "hfs mounted macintosh hd on device root_device" issue
-    vb.customize ["modifyvm", :id, "--cpuidset", "1","000206a7","02100800","1fbae3bf","bfebfbff"]
+    #vb.customize ["modifyvm", :id, "--cpuidset", "1","000206a7","02100800","1fbae3bf","bfebfbff"]
+    vb.customize ["modifyvm", :id, "--cpuidset", "00000001","000306a9","00020800","80000201","178bfbff"]
+
     # Some more hacks for device recognition
     vb.customize ["setextradata", :id, "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct", "MacBookPro11,3"]
     vb.customize ["setextradata", :id, "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion", "1.0"]
     vb.customize ["setextradata", :id, "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct", "Iloveapple"]
     vb.customize ["setextradata", :id, "VBoxInternal/Devices/smc/0/Config/DeviceKey", "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"]
     vb.memory = "4096"
+    vb.cpus = 4
   end
 
   # Disable automatic box update checking. If you disable this, then
@@ -84,8 +87,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.provision "file", source: "./buildAgent", destination: "/Users/vagrant/buildAgent"
   config.vm.provision "shell", inline: "chown -R vagrant /Users/vagrant/buildAgent"
+  config.vm.provision "file", source: "./tc_lib.sh", destination: "/Users/vagrant/tc_lib.sh"
+  config.vm.provision "file", source: "./tc_update.sh", destination: "/Users/vagrant/tc_update.sh"
   config.vm.provision "file", source: "./tc.sh", destination: "/Users/vagrant/tc.sh"
   config.vm.provision "file", source: "./env", destination: "/Users/vagrant/env", run: "always"
   config.vm.provision :shell, path: "start.sh", run: "always"
   config.vm.provision "shell", inline: "touch /Users/vagrant/provisioned"
+  config.vm.provision :shell, path: "tc_update.sh"
 end
