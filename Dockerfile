@@ -3,7 +3,7 @@ FROM fedora:27
 MAINTAINER Alexis Jeandet "alexis.jeandet@member.fsf.org"
 
 # Install.
-RUN dnf install -y http://download.virtualbox.org/virtualbox/5.2.4/VirtualBox-5.2-5.2.4_119785_fedora26-1.x86_64.rpm unzip xonsh vagrant
+RUN dnf install -y http://download.virtualbox.org/virtualbox/5.1.30/VirtualBox-5.1-5.1.30_118389_fedora26-1.x86_64.rpm unzip xonsh vagrant
 
 # Add files.
 RUN mkdir -p ./buildAgent
