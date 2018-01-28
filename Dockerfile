@@ -24,8 +24,8 @@ RUN unzip ./buildAgent.zip -d ./buildAgent/ && \
      echo "" >> ./buildAgent/conf/buildAgent.dist.properties && \
      echo "system.osx=true" >> ./buildAgent/conf/buildAgent.dist.properties && \
      echo "system.os=OSX" >> ./buildAgent/conf/buildAgent.dist.properties && \
-     echo "system.agent_name=osx" >> /opt/buildagent/conf/buildAgent.dist.properties  && \
-     echo "system.agent_repo=https://github.com/jeandet/teamcity-docker-agent-osx" >> /opt/buildagent/conf/buildAgent.dist.properties
+     echo "system.agent_name=osx" >> ./buildAgent/conf/buildAgent.dist.properties  && \
+     echo "system.agent_repo=https://github.com/jeandet/teamcity-docker-agent-osx" >> ./buildAgent/conf/buildAgent.dist.properties
 
 
 # Define working directory.
