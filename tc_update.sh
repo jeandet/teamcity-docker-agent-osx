@@ -5,7 +5,6 @@ export SERVER_URL=https://hephaistos.lpp.polytechnique.fr/teamcity
 source tc_lib.sh
 
 
-
 ${AGENT_DIST}/bin/agent.sh start&
 sleep 300 #wait until update complete
 ${AGENT_DIST}/bin/agent.sh stop
