@@ -1,6 +1,11 @@
 #!/bin/bash
 
 export SERVER_URL=https://hephaistos.lpp.polytechnique.fr/teamcity
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.5)/
+export JRE_HOME=$(/usr/libexec/java_home -v 1.5)/
+
+
+echo "JAVA HOME IS " $JAVA_HOME
 
 source tc_lib.sh
 

@@ -1,4 +1,6 @@
 #!/bin/bash
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.5)/
+export JRE_HOME=$(/usr/libexec/java_home -v 1.5)/
 
 source tc_lib.sh
 
